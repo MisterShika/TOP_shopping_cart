@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home';
+import './style/Reset.css';
 import './style/Screen.css';
 
 const router = createBrowserRouter([
