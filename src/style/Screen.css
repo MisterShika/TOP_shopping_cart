@@ -53,8 +53,16 @@ h2{
     font-size: 2em;
     color: #797979;
 }
+h3{
+    font-family: "Raleway", serif;
+    font-size: .7em;
+    color: #adadad;
+}
 .initial-search-container{
     margin: 50px 0;
+}
+.initial-search-container form{
+    display: flex;
 }
 .initial-search-container input{
     font-family: "Raleway", serif;
