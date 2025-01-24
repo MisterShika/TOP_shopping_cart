@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home';
 import Shop from './Shop';
+import NotFound from './NotFound';
 import './style/Reset.css';
 import './style/Screen.css';
 
@@ -15,15 +16,10 @@ const router = createBrowserRouter([
     path: "shop",
     element: <Shop />,
   },
-  // {
-  //   path: "profile",
-  //   element: <Profile />,
-  //   children: [
-  //     { index: true, element: <DefaultProfile /> },
-  //     { path: "spinach", element: <Spinach /> },
-  //     { path: "popeye", element: <Popeye /> },
-  //   ],
-  // },
+  {
+    path: "*",
+    element: <NotFound />, // A custom 404 page component
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

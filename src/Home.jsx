@@ -12,7 +12,7 @@ function Home () {
 
     const searchSubmit = (e) => {
         e.preventDefault();
-        navigate(`/shop?search=${searchTerm}`);
+        navigate(`/shop?s=${searchTerm}`);
         console.log(searchTerm);
         setSearchTerm('');
     }
