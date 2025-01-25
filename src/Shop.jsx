@@ -7,7 +7,7 @@ function Shop () {
     const [productData, setProductData] = useState([]);
     const [finalData, setFinalData] = useState([]);
     let searchValue = "";
-    if(searchParams.get("s").length >= 1){
+    if(searchParams.get("s") && searchParams.get("s").length >= 1){
         searchValue = searchParams.get("s");
     }
     
@@ -44,7 +44,12 @@ function Shop () {
             <ul>
                 {
                     finalData.map((row) => {
-                            return <li key={row.id}>{row.title}</li>
+                        console.log(row);
+                            return <li key={row.id}>
+                                <img src={row.image} alt={row.title} />
+                                <span className="product-title">{row.title}</span>
+                                <span className="product-price">${row.price}</span>
+                            </li>
                     })
                 }
             </ul>

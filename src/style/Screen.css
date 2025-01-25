@@ -104,3 +104,21 @@ h3{
 .initial-search-container button:hover{
     background-position: right center; 
 }
+
+.shop-container ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shop-container ul li{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 25%;
+}
+.shop-container ul li img{
+    width: 100%;
+    height: auto;
+    
+}
