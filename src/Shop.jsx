@@ -2,6 +2,8 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
+import NavBar from "./NavBar";
+
 function Shop () {
     const [searchParams, setSearchParams] = useSearchParams();
     const [productData, setProductData] = useState([]);
@@ -34,25 +36,28 @@ function Shop () {
         }else{
             setFinalData(productData);
         }
-    }, [productData]);
+    }, [productData, searchParams]);
 
     return (
-        <div className="shop-container">
-            Hello World
-            Your search:
+        <div className="main">
+            <NavBar searchParams={searchParams} setSearchParams={setSearchParams} />
+            <div className="shop-container">
+                Hello World
+                Your search:
 
-            <ul>
-                {
-                    finalData.map((row) => {
-                        console.log(row);
-                            return <li key={row.id}>
-                                <img src={row.image} alt={row.title} />
-                                <span className="product-title">{row.title}</span>
-                                <span className="product-price">${row.price}</span>
-                            </li>
-                    })
-                }
-            </ul>
+                <ul>
+                    {
+                        finalData.map((row) => {
+                            console.log(row);
+                                return <li key={row.id}>
+                                    <img src={row.image} alt={row.title} />
+                                    <span className="product-title">{row.title}</span>
+                                    <span className="product-price">${row.price}</span>
+                                </li>
+                        })
+                    }
+                </ul>
+            </div>
         </div>
     )
 }

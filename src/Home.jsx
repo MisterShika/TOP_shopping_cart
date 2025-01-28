@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { useNavigate } from "react-router-dom"
 
 function Home () {
@@ -6,8 +6,7 @@ function Home () {
     const navigate = useNavigate();
 
     const updateSearch = (e) => {
-        let newVal = e.target.value;
-        setSearchTerm(newVal)
+        setSearchTerm(e.target.value);
     }
 
     const searchSubmit = (e) => {
