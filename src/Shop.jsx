@@ -8,6 +8,8 @@ function Shop () {
     const [searchParams, setSearchParams] = useSearchParams();
     const [productData, setProductData] = useState([]);
     const [finalData, setFinalData] = useState([]);
+    const [cartData, setCartData] = useState({});
+
     let searchValue = "";
     if(searchParams.get("s") && searchParams.get("s").length >= 1){
         searchValue = searchParams.get("s");
@@ -40,7 +42,12 @@ function Shop () {
 
     return (
         <div className="main">
-            <NavBar searchParams={searchParams} setSearchParams={setSearchParams} />
+            <NavBar 
+                searchParams={searchParams} 
+                setSearchParams={setSearchParams} 
+                cartData={cartData}
+                setCartData={setCartData}
+            />
             <div className="shop-container">
                 Hello World
                 Your search:
