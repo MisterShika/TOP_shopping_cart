@@ -55,12 +55,15 @@ function Shop () {
                 <ul>
                     {
                         finalData.map((row) => {
-                            console.log(row);
-                                return <li key={row.id}>
-                                    <img src={row.image} alt={row.title} />
-                                    <span className="product-title">{row.title}</span>
-                                    <span className="product-price">${row.price}</span>
-                                </li>
+                            return <li key={row.id} className="shop-item">
+                                <img src={row.image} alt={row.title} />
+                                <span className="product-title">{row.title}</span>
+                                <span className="product-price">${row.price}</span>
+                                <span>
+                                    <input type="number" />
+                                    <button><i className="fa-solid fa-cart-plus"></i></button>
+                                </span>
+                            </li>
                         })
                     }
                 </ul>

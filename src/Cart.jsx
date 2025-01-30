@@ -1,7 +1,7 @@
 function Cart () {
     return (
         <div className="cart-container">
-            Cart
+            <i className="fa-solid fa-cart-shopping"></i>
         </div>
     )
 }
