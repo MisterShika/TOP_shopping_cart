@@ -8,7 +8,7 @@ function Shop () {
     const [searchParams, setSearchParams] = useSearchParams();
     const [productData, setProductData] = useState([]);
     const [finalData, setFinalData] = useState([]);
-    const [cartData, setCartData] = useState({});
+    const [cartData, setCartData] = useState([]);
 
     let searchValue = "";
     if(searchParams.get("s") && searchParams.get("s").length >= 1){
@@ -40,6 +40,23 @@ function Shop () {
         }
     }, [productData, searchParams]);
 
+    const addToCart = (addedItem) => {
+        setCartData(cartData => {
+            if (cartData.some(item => item.id === addedItem.id)) {
+                return cartData.map(item =>
+                item.id === addedItem.id ? { ...item, quantity: item.quantity + 1 } : item);
+            } else {
+                return [...cartData, { 
+                    id: addedItem.id, 
+                    quantity: 1, 
+                    price: addedItem.price, 
+                    title: addedItem.title,
+                    imgUrl: addedItem.image
+                }];
+            }
+        });
+    };
+
     return (
         <div className="main">
             <NavBar 
@@ -49,9 +66,6 @@ function Shop () {
                 setCartData={setCartData}
             />
             <div className="shop-container">
-                Hello World
-                Your search:
-
                 <ul>
                     {
                         finalData.map((row) => {
@@ -60,8 +74,7 @@ function Shop () {
                                 <span className="product-title">{row.title}</span>
                                 <span className="product-price">${row.price}</span>
                                 <span>
-                                    <input type="number" />
-                                    <button><i className="fa-solid fa-cart-plus"></i></button>
+                                    <button onClick={() => addToCart(row)}><i className="fa-solid fa-cart-plus"></i></button>
                                 </span>
                             </li>
                         })
