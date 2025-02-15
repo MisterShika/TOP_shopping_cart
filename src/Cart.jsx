@@ -2,20 +2,24 @@ function Cart ({cartData, setCartData}) {
     const totalMath = cartData.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalCost = totalMath.toFixed(2);
 
-    const updateQuantity = (id, value) => {
-        setCartData((prevCartData) =>
-            prevCartData.map((item) =>
-                item.id == id ? { ...item, quantity: Number(value) } : item
-            )
-        );
-    };
-
     const removeItem = (id) => {
         setCartData((prevCartData) =>
             prevCartData.filter((item) =>
                 item.id !== id
             )
         );
+    };
+
+    const updateQuantity = (id, value) => {
+        if(value == 0){
+            removeItem(id);
+        }else{
+            setCartData((prevCartData) =>
+                prevCartData.map((item) =>
+                    item.id == id ? { ...item, quantity: Number(value) } : item
+                )
+            );
+        }
     };
 
     return (

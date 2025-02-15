@@ -30,6 +30,7 @@ function NavBar ({searchParams, setSearchParams, cartData, setCartData}) {
 
     return(
         <div className="nav-container">
+            <h1>River</h1>
             <form onSubmit={searchAgain} className="nav-search">
                 <input type="text" value={searchInputValue} onChange={updateSearch}></input>
                 <button><i className="fa-solid fa-magnifying-glass"></i></button>

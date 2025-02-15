@@ -40,20 +40,22 @@ body{
     object-fit: cover;
 }
 h1{
+    font-family: "Permanent Marker", serif;
+}
+.home-page h1{
     width: 100%;
     background: #fff;
-    font-family: "Permanent Marker", serif;
     font-size: 8em;
     text-align: center;
     mix-blend-mode: screen;
     font-weight: bold;
 }
-h2{
+.home-page h2{
     font-family: "Raleway", serif;
     font-size: 2em;
     color: #797979;
 }
-h3{
+.home-page h3{
     font-family: "Raleway", serif;
     font-size: .7em;
     color: #adadad;
