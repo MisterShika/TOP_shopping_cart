@@ -1,14 +1,22 @@
-import { useEffect } from "react";
-
 function Cart ({cartData, setCartData}) {
     const totalMath = cartData.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalCost = totalMath.toFixed(2);
 
-    useEffect(() => {
-        
-    }, [cartData]);
+    const updateQuantity = (id, value) => {
+        setCartData((prevCartData) =>
+            prevCartData.map((item) =>
+                item.id == id ? { ...item, quantity: Number(value) } : item
+            )
+        );
+    };
 
-    
+    const removeItem = (id) => {
+        setCartData((prevCartData) =>
+            prevCartData.filter((item) =>
+                item.id !== id
+            )
+        );
+    };
 
     return (
         <div className="cart-container">
@@ -17,8 +25,9 @@ function Cart ({cartData, setCartData}) {
                     cartData.map((item) => {
                         return <li key={item.id}>
                             <span className="item-name">{item.title}</span>
-                            <span className="item-quantity">{item.quantity}</span>
                             <span className="item-price-total">${item.price * item.quantity}</span>
+                            <input type="number" value={item.quantity} onChange={(e) => updateQuantity(item.id, e.target.value)} />
+                            <i className="fa-solid fa-x" onClick={() => removeItem(item.id)}></i>
                         </li>
                     })
                 }
