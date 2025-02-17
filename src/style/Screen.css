@@ -137,3 +137,15 @@ h1{
 .shop-item span input{
     display: block;
 }
+
+.nav-cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cart-total{
+    display: none;
+}
+.cart-toggle{
+    cursor: pointer;
+}

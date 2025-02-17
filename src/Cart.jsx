@@ -37,7 +37,7 @@ function Cart ({cartData, setCartData}) {
                 }
             </ul>
             <span className="cart-total">${totalCost}</span>
-            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="cart-toggle fa-solid fa-cart-shopping"></i>
         </div>
     )
 }
