@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 function Cart ({cartData, setCartData}) {
+    const [showMenu, setShowMenu] = useState(false);
     const totalMath = cartData.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalCost = totalMath.toFixed(2);
 
@@ -22,22 +25,28 @@ function Cart ({cartData, setCartData}) {
         }
     };
 
+    const toggleMenu = () => {
+        setShowMenu(prev => !prev);
+    };
+
     return (
         <div className="cart-container">
-            <ul className="item-list">
-                {
-                    cartData.map((item) => {
-                        return <li key={item.id}>
-                            <span className="item-name">{item.title}</span>
-                            <span className="item-price-total">${item.price * item.quantity}</span>
-                            <input type="number" value={item.quantity} onChange={(e) => updateQuantity(item.id, e.target.value)} />
-                            <i className="fa-solid fa-x" onClick={() => removeItem(item.id)}></i>
-                        </li>
-                    })
-                }
-            </ul>
-            <span className="cart-total">${totalCost}</span>
-            <i className="cart-toggle fa-solid fa-cart-shopping"></i>
+            <div className={`cart-total-container ${showMenu ? "show" : ""}`}>
+                <ul className="item-list">
+                    {
+                        cartData.map((item) => {
+                            return <li key={item.id}>
+                                <span className="item-name">{item.title}</span>
+                                <span className="item-price-total">${item.price * item.quantity}</span>
+                                <input type="number" value={item.quantity} onChange={(e) => updateQuantity(item.id, e.target.value)} />
+                                <i className="fa-solid fa-x" onClick={() => removeItem(item.id)}></i>
+                            </li>
+                        })
+                    }
+                </ul>
+                <span className="cart-total">${totalCost}</span>
+            </div>
+            <i className="cart-toggle fa-solid fa-cart-shopping" onClick={toggleMenu}></i>
         </div>
     )
 }

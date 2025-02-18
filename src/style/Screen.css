@@ -149,3 +149,9 @@ h1{
 .cart-toggle{
     cursor: pointer;
 }
+.cart-total-container{
+    display: none;
+}
+.cart-total-container.show{
+    display: block;
+}
