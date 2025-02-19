@@ -40,17 +40,17 @@ function Cart ({cartData, setCartData}) {
                                 <span className="item-name">{item.title}</span>
                                 <span className="item-price-total">${item.price * item.quantity}</span>
                                 <input type="number" value={item.quantity} onChange={(e) => updateQuantity(item.id, e.target.value)} />
-                                <i className="fa-solid fa-trash" onClick={() => removeItem(item.id)}></i>
+                                <i className="fa-solid fa-trash delete-item" onClick={() => removeItem(item.id)}></i>
                             </li>
                         })
                     }
                 </ul>
                 <span className="cart-total">{totalCost > 0 ? `$${totalCost}` : "Add something to your cart!"}</span>
-                <i className="fa-solid fa-x" onClick={toggleMenu}></i>
+                <i className="fa-solid fa-x close-cart" onClick={toggleMenu}></i>
             </div>
-            <div className="toggle-container">
+            <div className="toggle-container" onClick={toggleMenu}>
                 <span className="cart-total-circle">{cartQuantityTotal}</span>
-                <i className="cart-toggle fa-solid fa-cart-shopping" onClick={toggleMenu}></i>
+                <i className="open-cart fa-solid fa-cart-shopping"></i>
             </div>
         </div>
     )

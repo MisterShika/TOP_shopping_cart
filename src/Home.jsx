@@ -27,7 +27,7 @@ function Home () {
             </div>
             <h2>a fake shop.</h2>
             <h3>with no backend</h3>
-            <div className="initial-search-container">
+            <div className="initial-search-container search-container">
                 <form onSubmit={searchSubmit}>
                     <input type="text" placeholder="Find your thing." value={searchTerm} onChange={updateSearch}/>
                     <button><i className="fa-solid fa-magnifying-glass"></i></button>

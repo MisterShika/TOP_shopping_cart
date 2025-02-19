@@ -1,10 +1,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/**
+
+    Global
+
+**/
+
 html, body, #root{
     height: 100%;
 }
 body{
     background-color: #fff;
+}
+h1{
+    font-family: "Permanent Marker", serif;
 }
 
 /**
@@ -39,9 +49,7 @@ body{
     bottom: 0; right: 0;
     object-fit: cover;
 }
-h1{
-    font-family: "Permanent Marker", serif;
-}
+
 .home-page h1{
     width: 100%;
     background: #fff;
@@ -63,10 +71,26 @@ h1{
 .initial-search-container{
     margin: 50px 0;
 }
-.initial-search-container form{
+.initial-search-container input{
+    font-size: 1.5em;
+}
+.initial-search-container button{
+    font-size: 1.5em;
+    height: 43px;
+    padding: 0 9px;
+}
+
+
+/**
+
+    Search Design
+
+**/ 
+
+.search-container form{
     display: flex;
 }
-.initial-search-container input{
+.search-container input{
     font-family: "Raleway", serif;
     border: 0;
     margin: 0;
@@ -78,24 +102,19 @@ h1{
     border-bottom-left-radius: 7px;
     background-color: #cadee6;
     transition: border 0.3s ease;
-    font-size: 1.5em;
 }
-
-.initial-search-container input:focus{
+.search-container input:focus{
     border: none;
     outline: none;
     box-sizing: border-box;
     border: 2px solid #26D0CE;
     border-right: none;
 }
-.initial-search-container button{
-    font-size: 1.5em;
-    height: 43px;
+.search-container button{
     border: 0;
     margin: 0;
-    padding: 0 9px;
     box-sizing: border-box;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     background-image: linear-gradient(to right, #1A2980 0%, #26D0CE  51%, #1A2980  100%);
     background-size: 200% auto;
     transition: background 0.3s ease;
@@ -103,27 +122,43 @@ h1{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.initial-search-container button:hover{
+.search-container button:hover{
     background-position: right center; 
 }
 
 /** 
 
-Top Bar
+    Top Bar
 
 **/
 .nav-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Raleway", serif;
 }
 .nav-container h1{
     font-size: 2.5rem;
     color: #6b6d85;
 }
 .toggle-container{
+    display: flex;
     position: absolute;
-    top: 0; right: 0;
+    top: 0; right: 5px;
+    z-index: 5;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    cursor: pointer;
+}
+.toggle-container .cart-total-circle{
+    display: flex;
+    background: #6b6d85;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 .cart-total-container{
     position: fixed;
@@ -135,16 +170,25 @@ Top Bar
     opacity: 0;
     visibility: hidden;
     transition: opacity .5s ease-in-out, visibility .5s;
+    z-index: 10;
 }
 .cart-total-container.show{
     visibility: visible;
     opacity: 1;
 }
+.close-cart{
+    position: absolute;
+    top: 0; right: 0;
+    cursor: pointer;
+}
+.delete-item{
+    cursor: pointer;
+}
 
 
 /** 
 
-Shop Page
+    Shop Page
 
 **/
 .shop-container ul{
