@@ -4,6 +4,7 @@ function Cart ({cartData, setCartData}) {
     const [showMenu, setShowMenu] = useState(false);
     const totalMath = cartData.reduce((total, item) => total + (item.price * item.quantity), 0);
     const totalCost = totalMath.toFixed(2);
+    const cartQuantityTotal = cartData.reduce((total, item) => total + item.quantity, 0);
 
     const removeItem = (id) => {
         setCartData((prevCartData) =>
@@ -39,14 +40,18 @@ function Cart ({cartData, setCartData}) {
                                 <span className="item-name">{item.title}</span>
                                 <span className="item-price-total">${item.price * item.quantity}</span>
                                 <input type="number" value={item.quantity} onChange={(e) => updateQuantity(item.id, e.target.value)} />
-                                <i className="fa-solid fa-x" onClick={() => removeItem(item.id)}></i>
+                                <i className="fa-solid fa-trash" onClick={() => removeItem(item.id)}></i>
                             </li>
                         })
                     }
                 </ul>
-                <span className="cart-total">${totalCost}</span>
+                <span className="cart-total">{totalCost > 0 ? `$${totalCost}` : "Add something to your cart!"}</span>
+                <i className="fa-solid fa-x" onClick={toggleMenu}></i>
             </div>
-            <i className="cart-toggle fa-solid fa-cart-shopping" onClick={toggleMenu}></i>
+            <div className="toggle-container">
+                <span className="cart-total-circle">{cartQuantityTotal}</span>
+                <i className="cart-toggle fa-solid fa-cart-shopping" onClick={toggleMenu}></i>
+            </div>
         </div>
     )
 }
