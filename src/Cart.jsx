@@ -30,6 +30,10 @@ function Cart ({cartData, setCartData}) {
         setShowMenu(prev => !prev);
     };
 
+    const checkOut = () => {
+        console.log('Checking Out');
+    };
+
     return (
         <div className="cart-container">
             <div className={`cart-total-container ${showMenu ? "show" : ""}`}>
@@ -47,6 +51,7 @@ function Cart ({cartData, setCartData}) {
                 </ul>
                 <span className="cart-total">{totalCost > 0 ? `$${totalCost}` : "Add something to your cart!"}</span>
                 <i className="fa-solid fa-x close-cart" onClick={toggleMenu}></i>
+                <button onClick={checkOut}>Check Out</button>
             </div>
             <div className="toggle-container" onClick={toggleMenu}>
                 <span className="cart-total-circle">{cartQuantityTotal}</span>
