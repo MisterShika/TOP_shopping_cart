@@ -49,9 +49,21 @@ function Cart ({cartData, setCartData}) {
                         })
                     }
                 </ul>
-                <span className="cart-total">{totalCost > 0 ? `$${totalCost}` : "Add something to your cart!"}</span>
+                {
+                    totalCost > 0 ? 
+                        <div className="total-holder">
+                            <span className="cart-total">{totalCost}</span>
+                            <button onClick={checkOut}>Check Out</button>
+                        </div> 
+                        :
+                        <div className="cta-holder"> 
+                            <span className="cart-cta">Buy something!</span>
+                            <button onClick={toggleMenu}>Return to Shopping</button>
+                        </div>
+                }
+                
                 <i className="fa-solid fa-x close-cart" onClick={toggleMenu}></i>
-                <button onClick={checkOut}>Check Out</button>
+               
             </div>
             <div className="toggle-container" onClick={toggleMenu}>
                 <span className="cart-total-circle">{cartQuantityTotal}</span>
