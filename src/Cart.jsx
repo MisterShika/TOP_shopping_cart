@@ -62,7 +62,7 @@ function Cart ({cartData, setCartData}) {
                         </div> 
                         :
                         <div className="cta-holder"> 
-                            <span className="cart-cta">Buy something!</span>
+                            <span className="cart-cta">Nothing in your cart!<br />Buy something!</span>
                             <button onClick={toggleMenu}>Return to Shopping</button>
                         </div>
                 }

@@ -164,9 +164,18 @@ h1{
     justify-content: center;
     align-items: center;
     color: #fff;
+    transition: background-color 0.5s ease;
 }
 .toggle-container .open-cart{
     font-size: 1.5rem;
+    color: #000;
+    transition: color 0.5s ease;
+}
+.toggle-container:hover .cart-total-circle{
+    background: #26D0CE;
+}
+.toggle-container:hover .open-cart{
+    color: #26D0CE;
 }
 
 /**
@@ -205,7 +214,7 @@ h1{
     transition: color 0.3s ease;
 }
 .close-cart:hover{
-    color: #6b6d85;
+    color: #26D0CE;
 }
 .delete-item{
     cursor: pointer;
@@ -245,7 +254,7 @@ h1{
     transition: color 0.3s ease;
 }
 .item-list .delete-item:hover{
-    color: #6b6d85;
+    color: #26D0CE;
 }
 .total-holder{
     display: flex;
@@ -270,12 +279,37 @@ h1{
 }
 .total-holder button:hover{
     background-color: #26D0CE;
-    color: #000;
 }
 .cart-total{
     margin: 1em 0;
     font-weight: bold;
     font-size: 1.25rem;
+}
+.cta-holder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cta-holder button{
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #1A2980;
+    color: #fff;
+    border: 0;
+    font-family: "Raleway", serif;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.cta-holder button:hover{
+    background-color: #26D0CE;
+}
+.cart-cta{
+    font-size: 2rem;
+    line-height: 4rem;
+    font-family: "Raleway", serif;
+    text-align: center;
 }
 
 
@@ -287,21 +321,51 @@ h1{
 .shop-container ul{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
-.shop-container ul li{
+.shop-container .shop-item{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     flex: 1 1 25%;
+    max-width: 16em;
+    margin: 1em;
+    box-sizing: border-box;
+    padding: 1em;
+    border-radius: 20px;
+    border: 1px solid lightblue;
+    background-color: #f7fdff;
+    font-family: "Raleway", serif;
+    min-width: 10em;
 }
-.shop-container ul li img{
+.shop-container .shop-item img{
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }
+.shop-container .shop-item .product-title{
+    margin: .5em 0;
+    line-height: 1.25em;
+    font-weight: bold;
+}
+.shop-container .shop-item button{
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #1A2980;
+    color: #fff;
+    border: 0;
+    font-family: "Raleway", serif;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.shop-container .shop-item button:hover{
+    background-color: #26D0CE;
+}
 .shop-item span input{
     display: block;
 }
+
 

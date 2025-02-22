@@ -69,12 +69,13 @@ function Shop () {
                 <ul>
                     {
                         finalData.map((row) => {
+                            let productPrice = row.price;
                             return <li key={row.id} className="shop-item">
                                 <img src={row.image} alt={row.title} />
                                 <span className="product-title">{row.title}</span>
-                                <span className="product-price">${row.price}</span>
+                                <span className="product-price">${productPrice.toFixed(2)}</span>
                                 <span>
-                                    <button onClick={() => addToCart(row)}><i className="fa-solid fa-cart-plus"></i></button>
+                                    <button onClick={() => addToCart(row)}>Add To Cart <i className="fa-solid fa-cart-plus"></i></button>
                                 </span>
                             </li>
                         })
