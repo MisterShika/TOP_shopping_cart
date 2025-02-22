@@ -37,12 +37,15 @@ function Cart ({cartData, setCartData}) {
     return (
         <div className="cart-container">
             <div className={`cart-total-container ${showMenu ? "show" : ""}`}>
+                <h1><a href="/">River</a></h1>
                 <ul className="item-list">
                     {
                         cartData.map((item) => {
+                            let itemPrice = item.price * item.quantity;
                             return <li key={item.id}>
+                                <span className="item-image"><img src={item.imgUrl} alt={item.title} /></span>
                                 <span className="item-name">{item.title}</span>
-                                <span className="item-price-total">${item.price * item.quantity}</span>
+                                <span className="item-price-total">${itemPrice.toFixed(2)}</span>
                                 <input type="number" value={item.quantity} onChange={(e) => updateQuantity(item.id, e.target.value)} />
                                 <i className="fa-solid fa-trash delete-item" onClick={() => removeItem(item.id)}></i>
                             </li>
@@ -52,8 +55,10 @@ function Cart ({cartData, setCartData}) {
                 {
                     totalCost > 0 ? 
                         <div className="total-holder">
-                            <span className="cart-total">{totalCost}</span>
-                            <button onClick={checkOut}>Check Out</button>
+                            <div>
+                                <span className="cart-total">${totalCost}</span>
+                                <button onClick={checkOut}>Check Out</button>
+                            </div>
                         </div> 
                         :
                         <div className="cta-holder"> 
